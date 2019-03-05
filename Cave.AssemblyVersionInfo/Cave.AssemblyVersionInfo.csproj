@@ -32,8 +32,6 @@
     <Deterministic>true</Deterministic>
     <DeterministicSourcePaths>false</DeterministicSourcePaths>
     <FileVersion>$([System.DateTime]::UtcNow.Year).$([System.DateTime]::UtcNow.ToString("MMdd")).$([System.DateTime]::UtcNow.ToString("HHmm")).$([System.DateTime]::UtcNow.ToString("ssfff"))</FileVersion>
-    <Version Condition=" '$(Major)' != '' ">$(Major).$(Minor).$(Patch)</Version>
-    <Version Condition=" '$(Major)' == '' ">0.$([System.DateTime]::UtcNow.ToString("yyyy")).$([System.DateTime]::UtcNow.ToString("MMdd")).$([System.DateTime]::UtcNow.ToString("HHmm"))-$(Configuration)</Version>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
   </PropertyGroup>
