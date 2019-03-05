@@ -32,6 +32,10 @@ steps:
         Write-Host "VersionSuffix: '$semver'"
       }
       $var = $(git describe --tags $(git rev-list --tags --max-count=1))
+      if ($var -eq '')
+      {
+        $var = "0.0.1"
+      }
       Write-Host "$("##vso[task.setvariable variable=VersionPrefix]")$var"
       Write-Host "VersionPrefix: '$var'"
 
@@ -62,3 +66,5 @@ steps:
     publishFeedCredentials: 'nuget-default'
     versioningScheme: byEnvVar
     versionEnvVar: GIT_TAG
+    includeSymbols: true
+
