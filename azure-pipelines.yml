@@ -29,7 +29,7 @@ steps:
       $var = "$(git tag -l --points-at HEAD)".Trim()
       if ($var -eq '')
       {
-        $semver = "ci-$env:BUILD_BUILDNUMBER"
+        $semver = "ci-$env:BUILD_BUILDNUMBER".Replace('.', '-')
         Write-Host "$("##vso[task.setvariable variable=VersionSuffix]")$semver"
         Write-Host "VersionSuffix: '$semver'"
       }
@@ -40,10 +40,15 @@ steps:
       $var = $(git describe --tags $(git rev-list --tags --max-count=1))
       if ($var -eq '')
       {
-        $var = "0.0.1"
+        $ver = [Version]"0.0.1"
       }
-      Write-Host "$("##vso[task.setvariable variable=VersionPrefix]")$var"
-      Write-Host "VersionPrefix: '$var'"
+      else
+      {
+        $ver = [Version]$var
+        $ver = [Version]"$($ver.Major).$($ver.Minor).$($ver.Build+1)"
+      }
+      Write-Host "$("##vso[task.setvariable variable=VersionPrefix]")$ver"
+      Write-Host "VersionPrefix: '$ver'"
 
 - task: NuGetToolInstaller@0
 
