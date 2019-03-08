@@ -29,7 +29,7 @@ steps:
       $var = "$(git tag -l --points-at HEAD)".Trim()
       if ($var -eq '')
       {
-        $semver = "ci-$BUILD_BUILDNUMBER"
+        $semver = "ci-$env:BUILD_BUILDNUMBER"
         Write-Host "$("##vso[task.setvariable variable=VersionSuffix]")$semver"
         Write-Host "VersionSuffix: '$semver'"
       }
