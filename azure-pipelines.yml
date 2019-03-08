@@ -74,7 +74,7 @@ steps:
   #condition: ne(variables['GIT_TAG'], '')
   inputs:
     command: push
-    packagesToPush: '$(Build.SourcesDirectory)/**/*.nupkg'
+    packagesToPush: '$(Build.SourcesDirectory)/**/*.nupkg;$(Build.SourcesDirectory)/**/*.snupkg'
     nuGetFeedType: external
     publishFeedCredentials: 'nuget-default'
     versioningScheme: byEnvVar
