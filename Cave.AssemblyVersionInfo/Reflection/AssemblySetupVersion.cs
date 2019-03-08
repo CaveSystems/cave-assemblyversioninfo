@@ -49,13 +49,13 @@ using System;
 namespace Cave.Reflection
 {
     /// <summary>
-    /// Setup Version Attribute for the Assembly
+    /// Setup Version Attribute for the Assembly.
     /// </summary>
     [AttributeUsage(AttributeTargets.Assembly, Inherited = false)]
     public sealed class AssemblySetupVersion : Attribute
     {
         /// <summary>
-        /// Obtains the license number
+        /// Gets the license number.
         /// </summary>
         public Version SetupVersion { get; private set; }
 
@@ -68,7 +68,8 @@ namespace Cave.Reflection
 
         /// <summary>Initializes a new instance of the <see cref="AssemblySetupVersion"/> class.</summary>
         /// <param name="version">The version.</param>
-        public AssemblySetupVersion(string version) : this(new Version(version))
+        public AssemblySetupVersion(string version)
+            : this(new Version(version))
         {
         }
     }

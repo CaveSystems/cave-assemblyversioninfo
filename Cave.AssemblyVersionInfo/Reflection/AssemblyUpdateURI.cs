@@ -49,20 +49,20 @@ using System;
 namespace Cave.Reflection
 {
     /// <summary>
-    /// Update URI for the Assembly
+    /// Update URI for the Assembly.
     /// </summary>
     [AttributeUsage(AttributeTargets.Assembly, Inherited = false)]
     public sealed class AssemblyUpdateURI : Attribute
     {
         /// <summary>
-        /// Obtains the update URI
+        /// Gets the update URI.
         /// </summary>
-        public  Uri URI { get; private set; }
+        public Uri URI { get; private set; }
 
         /// <summary>
-        /// Creates a new update information
+        /// Initializes a new instance of the <see cref="AssemblyUpdateURI"/> class.
         /// </summary>
-        /// <param name="uri">Update URI for the Assembly</param>
+        /// <param name="uri">Update URI for the Assembly.</param>
         public AssemblyUpdateURI(Uri uri)
         {
             URI = uri;

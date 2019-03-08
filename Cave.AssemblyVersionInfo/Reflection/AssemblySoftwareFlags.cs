@@ -49,13 +49,13 @@ using System;
 namespace Cave.Reflection
 {
     /// <summary>
-    /// SoftwareFlags for the Assembly
+    /// SoftwareFlags for the Assembly.
     /// </summary>
     [AttributeUsage(AttributeTargets.Assembly, Inherited = false)]
     public sealed class AssemblySoftwareFlags : Attribute
     {
         /// <summary>
-        /// Obtains the SoftwareFlags
+        /// Gets the SoftwareFlags.
         /// </summary>
         public SoftwareFlags Flags { get; private set; }
 

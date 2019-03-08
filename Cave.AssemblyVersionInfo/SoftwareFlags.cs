@@ -50,9 +50,8 @@ using System;
 namespace Cave
 {
     /// <summary>
-    /// Provides flags for software revisions / versions
+    /// Provides flags for software revisions / versions.
     /// </summary>
-    [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2217:DoNotMarkEnumsWithFlags")]
     [Flags]
     public enum SoftwareFlags
     {

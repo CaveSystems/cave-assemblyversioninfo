@@ -50,13 +50,14 @@ using System;
 namespace Cave
 {
     /// <summary>
-    /// Provides access to LATESTVERSION files
+    /// Provides access to LATESTVERSION files.
     /// </summary>
     public struct LatestVersion : IComparable<LatestVersion>
     {
         #region static functions
+
         /// <summary>
-        /// Obtains a new empty version
+        /// Gets a new empty version.
         /// </summary>
         public static LatestVersion Empty
         {
@@ -68,16 +69,16 @@ namespace Cave
                     FileVersion = new Version(0, 0),
                     SetupVersion = new Version(0, 0),
                     ReleaseDate = default(DateTime),
-                    SetupPackage = "",
-                    SetupArguments = "",
-                    SoftwareName = "",
-                    SoftwareFlags = SoftwareFlags.None
+                    SetupPackage = string.Empty,
+                    SetupArguments = string.Empty,
+                    SoftwareName = string.Empty,
+                    SoftwareFlags = SoftwareFlags.None,
                 };
             }
         }
 
         /// <summary>
-        /// Checks whether the specified latest version is newer then the current one
+        /// Checks whether the specified latest version is newer then the current one.
         /// </summary>
         /// <param name="latest"></param>
         /// <param name="current"></param>
@@ -93,8 +94,9 @@ namespace Cave
         }
 
         #region static comparison operators
+
         /// <summary>
-        /// Provides <see cref="LatestVersion"/> comparison
+        /// Provides <see cref="LatestVersion"/> comparison.
         /// </summary>
         /// <param name="v1"></param>
         /// <param name="v2"></param>
@@ -110,7 +112,7 @@ namespace Cave
         }
 
         /// <summary>
-        /// Provides <see cref="LatestVersion"/> comparison
+        /// Provides <see cref="LatestVersion"/> comparison.
         /// </summary>
         /// <param name="v1"></param>
         /// <param name="v2"></param>
@@ -121,7 +123,7 @@ namespace Cave
         }
 
         /// <summary>
-        /// Provides <see cref="LatestVersion"/> comparison
+        /// Provides <see cref="LatestVersion"/> comparison.
         /// </summary>
         /// <param name="v1"></param>
         /// <param name="v2"></param>
@@ -137,7 +139,7 @@ namespace Cave
         }
 
         /// <summary>
-        /// Provides <see cref="LatestVersion"/> comparison
+        /// Provides <see cref="LatestVersion"/> comparison.
         /// </summary>
         /// <param name="v1"></param>
         /// <param name="v2"></param>
@@ -148,7 +150,7 @@ namespace Cave
         }
 
         /// <summary>
-        /// Provides <see cref="LatestVersion"/> comparison
+        /// Provides <see cref="LatestVersion"/> comparison.
         /// </summary>
         /// <param name="v1"></param>
         /// <param name="v2"></param>
@@ -159,7 +161,7 @@ namespace Cave
         }
 
         /// <summary>
-        /// Provides <see cref="LatestVersion"/> comparison
+        /// Provides <see cref="LatestVersion"/> comparison.
         /// </summary>
         /// <param name="v1"></param>
         /// <param name="v2"></param>
@@ -173,55 +175,56 @@ namespace Cave
         #endregion
 
         #region public fields
+
         /// <summary>
-        /// Name of the Software this LatestVersion belongs to
+        /// Gets or sets name of the Software this LatestVersion belongs to.
         /// </summary>
         public string SoftwareName { get; set; }
 
         /// <summary>
-        /// Gets / sets the Assembly <see cref="Version"/>.
+        /// Gets or sets the Assembly <see cref="Version"/>.
         /// </summary>
         public Version AssemblyVersion { get; set; }
 
         /// <summary>
-        /// Gets / sets the File <see cref="Version"/>.
+        /// Gets or sets the File <see cref="Version"/>.
         /// </summary>
         public Version FileVersion { get; set; }
 
         /// <summary>
-        /// Gets / sets the Installer <see cref="Version"/>. (This is the version used while comparing two instances).
+        /// Gets or sets the Installer <see cref="Version"/>. (This is the version used while comparing two instances).
         /// </summary>
         public Version SetupVersion { get; set; }
 
         /// <summary>
-        /// Path of update
+        /// Gets or sets path of update.
         /// </summary>
         public Uri UpdateURI { get; set; }
 
         /// <summary>
-        /// Gets / sets the SoftwareFlags
+        /// Gets or sets the SoftwareFlags.
         /// </summary>
         public SoftwareFlags SoftwareFlags { get; set; }
 
         /// <summary>
-        /// Gets / sets the release date
+        /// Gets or sets the release date.
         /// </summary>
         public DateTime ReleaseDate { get; set; }
 
         /// <summary>
-        /// Gets / sets the SetupPackage fileName.
+        /// Gets or sets the SetupPackage fileName.
         /// </summary>
         public string SetupPackage { get; set; }
 
         /// <summary>
-        /// Gets / sets the setup arguments.
+        /// Gets or sets the setup arguments.
         /// </summary>
         public string SetupArguments { get; set; }
 
         #endregion
 
         /// <summary>
-        /// Returns "{<see cref="SoftwareName"/>} {<see cref="AssemblyVersion"/>}"
+        /// Returns "{<see cref="SoftwareName"/>} {<see cref="AssemblyVersion"/>}".
         /// </summary>
         /// <returns></returns>
         public override string ToString()
@@ -230,7 +233,7 @@ namespace Cave
         }
 
         /// <summary>
-        /// Obtains the hashcode of this instance
+        /// Obtains the hashcode of this instance.
         /// </summary>
         /// <returns></returns>
         public override int GetHashCode()
@@ -239,7 +242,7 @@ namespace Cave
         }
 
         /// <summary>
-        /// Checks two <see cref="LatestVersion"/> instances for equality
+        /// Checks two <see cref="LatestVersion"/> instances for equality.
         /// </summary>
         /// <param name="obj"></param>
         /// <returns></returns>
@@ -261,7 +264,7 @@ namespace Cave
         }
 
         /// <summary>
-        /// Compares the current instance with another object of the same type and returns an integer that indicates whether the current instance precedes, 
+        /// Compares the current instance with another object of the same type and returns an integer that indicates whether the current instance precedes,
         /// follows, or occurs in the same position in the sort order as the other object.
         /// </summary>
         /// <param name="other">An object to compare with this instance.</param>

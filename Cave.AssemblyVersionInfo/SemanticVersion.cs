@@ -51,7 +51,7 @@ using System.Text;
 namespace Cave
 {
     /// <summary>
-    /// Provides semantic version numbers
+    /// Provides semantic version numbers.
     /// </summary>
     /// <seealso cref="IEquatable{SemanticVersion}" />
     /// <seealso cref="IComparable{SemanticVersion}" />
@@ -63,7 +63,7 @@ namespace Cave
         /// <returns>The result of the operator.</returns>
         public static bool operator <(SemanticVersion version1, SemanticVersion version2)
         {
-			if (version1 is null)
+            if (version1 is null)
             {
                 throw new ArgumentNullException(nameof(version1));
             }
@@ -82,7 +82,7 @@ namespace Cave
         /// <returns>The result of the operator.</returns>
         public static bool operator >(SemanticVersion version1, SemanticVersion version2)
         {
-			if (version1 is null)
+            if (version1 is null)
             {
                 throw new ArgumentNullException(nameof(version1));
             }
@@ -101,7 +101,7 @@ namespace Cave
         /// <returns>The result of the operator.</returns>
         public static bool operator <=(SemanticVersion version1, SemanticVersion version2)
         {
-			if (version1 is null)
+            if (version1 is null)
             {
                 throw new ArgumentNullException(nameof(version1));
             }
@@ -120,7 +120,7 @@ namespace Cave
         /// <returns>The result of the operator.</returns>
         public static bool operator >=(SemanticVersion version1, SemanticVersion version2)
         {
-			if (version1 is null)
+            if (version1 is null)
             {
                 throw new ArgumentNullException(nameof(version1));
             }
@@ -139,7 +139,7 @@ namespace Cave
         /// <returns>The result of the operator.</returns>
         public static bool operator ==(SemanticVersion version1, SemanticVersion version2)
         {
-			if (version1 is null)
+            if (version1 is null)
             {
                 throw new ArgumentNullException(nameof(version1));
             }
@@ -158,7 +158,7 @@ namespace Cave
         /// <returns>The result of the operator.</returns>
         public static bool operator !=(SemanticVersion version1, SemanticVersion version2)
         {
-			if (version1 is null)
+            if (version1 is null)
             {
                 throw new ArgumentNullException(nameof(version1));
             }
@@ -175,7 +175,7 @@ namespace Cave
         /// <value>The valid chars.</value>
         public const string ValidChars = "0123456789abcdefghijklmnopqrstuvwxyz.-+";
 
-        /// <summary>Parses the specified value major.minor[.patch][-meta[.pre]]</summary>
+        /// <summary>Parses the specified value major.minor[.patch][-meta[.pre]].</summary>
         /// <param name="value">The value.</param>
         /// <returns></returns>
         /// <exception cref="InvalidDataException"></exception>
@@ -185,7 +185,7 @@ namespace Cave
             return result;
         }
 
-        /// <summary>Tries to parse the specified value major.minor[.patch][-meta[.pre]]</summary>
+        /// <summary>Tries to parse the specified value major.minor[.patch][-meta[.pre]].</summary>
         /// <param name="value">The value.</param>
         /// <returns></returns>
         public static SemanticVersion TryParse(string value)
@@ -194,7 +194,7 @@ namespace Cave
             return result;
         }
 
-        /// <summary>Parses the specified value major.minor[.patch][-meta[.pre]]</summary>
+        /// <summary>Parses the specified value major.minor[.patch][-meta[.pre]].</summary>
         /// <param name="value">The value.</param>
         /// <param name="throwEx">if set to <c>true</c> [throw exception on parser error].</param>
         /// <param name="version">The version.</param>
@@ -274,23 +274,23 @@ namespace Cave
         /// <value>The patch version number.</value>
         public int Patch { get; }
 
-		/// <summary>Gets the meta data.</summary>
-		/// <value>The meta data.</value>
-		public string Meta { get; }
+        /// <summary>Gets the meta data.</summary>
+        /// <value>The meta data.</value>
+        public string Meta { get; }
 
-		/// <summary>Initializes a new instance of the <see cref="SemanticVersion"/> class.</summary>
-		/// <param name="major">The major version number.</param>
-		/// <param name="minor">The minor version number.</param>
-		/// <param name="patch">The patch version number.</param>
-		/// <param name="meta">The meta data to append.</param>
-		/// <exception cref="System.ArgumentOutOfRangeException">
-		/// major
-		/// or
-		/// minor
-		/// or
-		/// meta
-		/// </exception>
-		public SemanticVersion(int major, int minor, int? patch = null, string meta = null)
+        /// <summary>Initializes a new instance of the <see cref="SemanticVersion"/> class.</summary>
+        /// <param name="major">The major version number.</param>
+        /// <param name="minor">The minor version number.</param>
+        /// <param name="patch">The patch version number.</param>
+        /// <param name="meta">The meta data to append.</param>
+        /// <exception cref="ArgumentOutOfRangeException">
+        /// major
+        /// or
+        /// minor
+        /// or
+        /// meta.
+        /// </exception>
+        public SemanticVersion(int major, int minor, int? patch = null, string meta = null)
         {
             if (major < 0)
             {
@@ -310,7 +310,7 @@ namespace Cave
             Major = major;
             Minor = minor;
             Patch = patch.GetValueOrDefault(-1);
-			Meta = meta;
+            Meta = meta;
         }
 
         /// <summary>Gets the classic version (calculates a build number based on the characters).</summary>
@@ -377,11 +377,11 @@ namespace Cave
                 fraction += c;
                 max *= 256;
             }
-            return main + fraction / max;
+            return main + (fraction / max);
         }
 
-        /// <summary>Returns a <see cref="System.String" /> that represents this instance.</summary>
-        /// <returns>A <see cref="System.String" /> that represents this instance.</returns>
+        /// <summary>Returns a <see cref="string" /> that represents this instance.</summary>
+        /// <returns>A <see cref="string" /> that represents this instance.</returns>
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
@@ -403,10 +403,10 @@ namespace Cave
             return sb.ToString();
         }
 
-        /// <summary>Determines whether the specified <see cref="System.Object" />, is equal to this instance.</summary>
-        /// <param name="obj">The <see cref="System.Object" /> to compare with this instance.</param>
+        /// <summary>Determines whether the specified <see cref="object" />, is equal to this instance.</summary>
+        /// <param name="obj">The <see cref="object" /> to compare with this instance.</param>
         /// <returns>
-        ///   <c>true</c> if the specified <see cref="System.Object" /> is equal to this instance; otherwise, <c>false</c>.
+        ///   <c>true</c> if the specified <see cref="object" /> is equal to this instance; otherwise, <c>false</c>.
         /// </returns>
         public override bool Equals(object obj)
         {
@@ -435,14 +435,14 @@ namespace Cave
 
         /// <summary>Returns a hash code for this instance.</summary>
         /// <returns>
-        /// A hash code for this instance, suitable for use in hashing algorithms and data structures like a hash table. 
+        /// A hash code for this instance, suitable for use in hashing algorithms and data structures like a hash table.
         /// </returns>
         public override int GetHashCode()
         {
             return ToString().GetHashCode();
         }
 
-        /// <summary>Compares the current instance with another object of the same type and returns an integer that indicates whether the current instance precedes, 
+        /// <summary>Compares the current instance with another object of the same type and returns an integer that indicates whether the current instance precedes,
         /// follows, or occurs in the same position in the sort order as the other object.</summary>
         /// <param name="other">An object to compare with this instance.</param>
         /// <returns>A value that indicates the relative order of the objects being compared.</returns>
@@ -456,7 +456,7 @@ namespace Cave
             return ToAbsolute().CompareTo(other.ToAbsolute());
         }
 
-        /// <summary>Compares the current instance with another object of the same type and returns an integer that indicates whether the current instance precedes, 
+        /// <summary>Compares the current instance with another object of the same type and returns an integer that indicates whether the current instance precedes,
         /// follows, or occurs in the same position in the sort order as the other object.</summary>
         /// <param name="other">An object to compare with this instance.</param>
         /// <returns>A value that indicates the relative order of the objects being compared.</returns>

@@ -49,13 +49,13 @@ using System;
 namespace Cave.Reflection
 {
     /// <summary>
-    /// License Number Attribute for the Assembly
+    /// License Number Attribute for the Assembly.
     /// </summary>
     [AttributeUsage(AttributeTargets.Assembly, Inherited = false)]
     public sealed class AssemblySetupPackage : Attribute
     {
         /// <summary>
-        /// Obtains the license number
+        /// Gets the license number.
         /// </summary>
         public string SetupPackage { get; private set; }
 

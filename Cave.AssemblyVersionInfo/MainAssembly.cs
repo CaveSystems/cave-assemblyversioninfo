@@ -54,21 +54,21 @@ using System.Reflection;
 namespace Cave
 {
     /// <summary>
-    /// Retrieves the main assembly of the running program
+    /// Retrieves the main assembly of the running program.
     /// </summary>
     public static class MainAssembly
     {
-        static Assembly s_Assembly = null;
+        static Assembly mainAssembly = null;
 
         /// <summary>Gets the MainAssembly.</summary>
-        /// <returns></returns>
+        /// <returns>Returns the main assembly instance.</returns>
         public static Assembly Get()
         {
-            if (s_Assembly == null)
+            if (mainAssembly == null)
             {
-                s_Assembly = FindProgramAssembly();
+                mainAssembly = FindProgramAssembly();
             }
-            return s_Assembly;
+            return mainAssembly;
         }
 
         static Assembly FindProgramAssembly()
