@@ -1,18 +1,23 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFrameworks>netstandard2.0;net20;net35;net45</TargetFrameworks>
-    <RootNamespace>Cave</RootNamespace>
-    <Authors>Andreas Rohleder</Authors>
+	<Authors>Andreas Rohleder</Authors>
     <Company>CaveSystems GmbH, Andreas Rohleder</Company>
-    <Product>CaveSystems AssemblyVersionInfo Library</Product>
-    <PackageLicenseExpression>LGPL-3.0-only</PackageLicenseExpression>
-    <AssemblyOriginatorKeyFile>Cave.AssemblyVersionInfo.snk</AssemblyOriginatorKeyFile>
-    <PackageIconUrl>https://www.cavesystems.de/favicon.ico</PackageIconUrl>
-    <PackageTags>CaveSystems AssemblyVersionInfo</PackageTags>
-    <Description>CaveSystems AssemblyVersionInfo Bibliothek</Description>
-    <DocumentationFile>bin\$(Configuration)\$(TargetFramework)\Cave.AssemblyVersionInfo.xml</DocumentationFile>
-    <PackageProjectUrl>https://github.com/CaveSystems/cave-assemblyversioninfo</PackageProjectUrl>
     <Copyright>(c) 2003-$([System.DateTime]::UtcNow.Year) Andreas Rohleder</Copyright>
+    <PackageIconUrl>https://www.cavesystems.de/favicon.ico</PackageIconUrl>
+    <PackageLicenseExpression>LGPL-3.0-only</PackageLicenseExpression>
+	<DocumentationFile>bin\$(Configuration)\$(TargetFramework)\$(AssemblyName).xml</DocumentationFile>
+    <FileVersion>$([System.DateTime]::UtcNow.Year).$([System.DateTime]::UtcNow.ToString("MMdd")).$([System.DateTime]::UtcNow.ToString("HHmm")).$([System.DateTime]::UtcNow.ToString("ssfff"))</FileVersion>
+	<LangVersion>latest</LangVersion>
+    <!--project-->
+    <RootNamespace>Cave</RootNamespace>    
+    <AssemblyOriginatorKeyFile>Cave.AssemblyVersionInfo.snk</AssemblyOriginatorKeyFile>
+    <Product>CaveSystems AssemblyVersionInfo Library</Product>
+    <PackageTags>CaveSystems AssemblyVersionInfo</PackageTags>
+    <Description>CaveSystems AssemblyVersionInfo Bibliothek. This packages contains tools for appdom and assembly specific functions and versioning.</Description>
+    <PackageProjectUrl>https://github.com/CaveSystems/cave-assemblyversioninfo</PackageProjectUrl>
+	<RepositoryUrl>https://github.com/CaveSystems/cave-assemblyversioninfo</RepositoryUrl>
+    <!--settings-->
     <PackageReleaseNotes />
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <SignAssembly>true</SignAssembly>
@@ -40,9 +45,6 @@
   <PropertyGroup>
     <DefineConstants Condition=" !$(DefineConstants.Contains(';NET')) ">$(DefineConstants);NET$(TargetFramework.ToUpper().Replace("_", "").Replace(".", "").Replace("NET", ""))</DefineConstants>
     <DefineConstants Condition=" $(DefineConstants.Contains(';NET')) ">$(DefineConstants.Remove($(DefineConstants.LastIndexOf(";NET"))));NET$(TargetFramework.ToUpper().Replace("_", "").Replace(".", "").Replace("NET", ""))</DefineConstants>
-    <NeutralLanguage />
-    <RootNamespace>System</RootNamespace>
-    <DelaySign>false</DelaySign>
   </PropertyGroup>
   <ItemGroup Condition="'$(TargetFramework)'=='net40' OR '$(TargetFramework)'=='net45' OR '$(TargetFramework)'=='net46' OR '$(TargetFramework)'=='net471'">
     <Reference Include="System" />
