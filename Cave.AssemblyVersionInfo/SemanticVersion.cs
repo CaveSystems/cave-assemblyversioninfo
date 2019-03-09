@@ -177,8 +177,8 @@ namespace Cave
 
         /// <summary>Parses the specified value major.minor[.patch][-meta[.pre]].</summary>
         /// <param name="value">The value.</param>
-        /// <returns></returns>
-        /// <exception cref="InvalidDataException"></exception>
+        /// <returns>the semantic version.</returns>
+        /// <exception cref="InvalidDataException">Error on parsing.</exception>
         public static SemanticVersion Parse(string value)
         {
             TryParse(value, true, out SemanticVersion result);
@@ -187,7 +187,7 @@ namespace Cave
 
         /// <summary>Tries to parse the specified value major.minor[.patch][-meta[.pre]].</summary>
         /// <param name="value">The value.</param>
-        /// <returns></returns>
+        /// <returns>the semantic version.</returns>
         public static SemanticVersion TryParse(string value)
         {
             TryParse(value, false, out SemanticVersion result);
@@ -199,8 +199,7 @@ namespace Cave
         /// <param name="throwEx">if set to <c>true</c> [throw exception on parser error].</param>
         /// <param name="version">The version.</param>
         /// <returns>Returns true if the version was parsed successfully, false otherwise.</returns>
-        /// <exception cref="InvalidDataException">
-        /// </exception>
+        /// <exception cref="InvalidDataException">error on parsing.</exception>
         public static bool TryParse(string value, bool throwEx, out SemanticVersion version)
         {
             bool result = true;
@@ -314,7 +313,7 @@ namespace Cave
         }
 
         /// <summary>Gets the classic version (calculates a build number based on the characters).</summary>
-        /// <returns></returns>
+        /// <returns>the classic version.</returns>
         public Version GetClassicVersion()
         {
             if (Meta != null)
@@ -347,7 +346,7 @@ namespace Cave
         }
 
         /// <summary>Gets the normalized version.</summary>
-        /// <returns></returns>
+        /// <returns>the normalized version.</returns>
         public Version GetNormalizedVersion()
         {
             if (Patch > -1)
@@ -358,8 +357,8 @@ namespace Cave
             return new Version(Major, Minor);
         }
 
-        /// <summary>Returns an absolute value for this version.</summary>
-        /// <returns></returns>
+        /// <summary>Gets an absolute value for this version.</summary>
+        /// <returns>an absolute value.</returns>
         public decimal ToAbsolute()
         {
             StringBuilder sb = new StringBuilder();

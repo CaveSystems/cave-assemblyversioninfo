@@ -80,9 +80,9 @@ namespace Cave
         /// <summary>
         /// Checks whether the specified latest version is newer then the current one.
         /// </summary>
-        /// <param name="latest"></param>
-        /// <param name="current"></param>
-        /// <returns></returns>
+        /// <param name="latest">latest version.</param>
+        /// <param name="current">current version.</param>
+        /// <returns>true if latest version is newer then current version.</returns>
         public static bool VersionIsNewer(Version latest, Version current)
         {
             if (latest == null)
@@ -98,9 +98,9 @@ namespace Cave
         /// <summary>
         /// Provides <see cref="LatestVersion"/> comparison.
         /// </summary>
-        /// <param name="v1"></param>
-        /// <param name="v2"></param>
-        /// <returns></returns>
+        /// <param name="v1">first version.</param>
+        /// <param name="v2">second version.</param>
+        /// <returns>true if first version is smaller.</returns>
         public static bool operator <(LatestVersion v1, LatestVersion v2)
         {
             if (v1.SoftwareName != v2.SoftwareName)
@@ -114,9 +114,9 @@ namespace Cave
         /// <summary>
         /// Provides <see cref="LatestVersion"/> comparison.
         /// </summary>
-        /// <param name="v1"></param>
-        /// <param name="v2"></param>
-        /// <returns></returns>
+        /// <param name="v1">first version.</param>
+        /// <param name="v2">second version.</param>
+        /// <returns>true if first version is maller or equal.</returns>
         public static bool operator <=(LatestVersion v1, LatestVersion v2)
         {
             return (v1 < v2) || (v1 == v2);
@@ -125,9 +125,9 @@ namespace Cave
         /// <summary>
         /// Provides <see cref="LatestVersion"/> comparison.
         /// </summary>
-        /// <param name="v1"></param>
-        /// <param name="v2"></param>
-        /// <returns></returns>
+        /// <param name="v1">first version.</param>
+        /// <param name="v2">second version.</param>
+        /// <returns>true if first version is greater.</returns>
         public static bool operator >(LatestVersion v1, LatestVersion v2)
         {
             if (v1.SoftwareName != v2.SoftwareName)
@@ -141,9 +141,9 @@ namespace Cave
         /// <summary>
         /// Provides <see cref="LatestVersion"/> comparison.
         /// </summary>
-        /// <param name="v1"></param>
-        /// <param name="v2"></param>
-        /// <returns></returns>
+        /// <param name="v1">first version.</param>
+        /// <param name="v2">second version.</param>
+        /// <returns>true if first version is greater or equal.</returns>
         public static bool operator >=(LatestVersion v1, LatestVersion v2)
         {
             return (v1 > v2) || (v1 == v2);
@@ -152,9 +152,9 @@ namespace Cave
         /// <summary>
         /// Provides <see cref="LatestVersion"/> comparison.
         /// </summary>
-        /// <param name="v1"></param>
-        /// <param name="v2"></param>
-        /// <returns></returns>
+        /// <param name="v1">first version.</param>
+        /// <param name="v2">second version.</param>
+        /// <returns>true if versions are equal.</returns>
         public static bool operator ==(LatestVersion v1, LatestVersion v2)
         {
             return v1.Equals(v2);
@@ -163,9 +163,9 @@ namespace Cave
         /// <summary>
         /// Provides <see cref="LatestVersion"/> comparison.
         /// </summary>
-        /// <param name="v1"></param>
-        /// <param name="v2"></param>
-        /// <returns></returns>
+        /// <param name="v1">first version.</param>
+        /// <param name="v2">second version.</param>
+        /// <returns>true if versions are not equal.</returns>
         public static bool operator !=(LatestVersion v1, LatestVersion v2)
         {
             return !v1.Equals(v2);
@@ -226,16 +226,16 @@ namespace Cave
         /// <summary>
         /// Returns "{<see cref="SoftwareName"/>} {<see cref="AssemblyVersion"/>}".
         /// </summary>
-        /// <returns></returns>
+        /// <returns>software name and assembly version.</returns>
         public override string ToString()
         {
             return $"{SoftwareName} {AssemblyVersion}";
         }
 
         /// <summary>
-        /// Obtains the hashcode of this instance.
+        /// Gets the hashcode of this instance.
         /// </summary>
-        /// <returns></returns>
+        /// <returns>the hashcode.</returns>
         public override int GetHashCode()
         {
             return ToString().GetHashCode();
@@ -244,8 +244,8 @@ namespace Cave
         /// <summary>
         /// Checks two <see cref="LatestVersion"/> instances for equality.
         /// </summary>
-        /// <param name="obj"></param>
-        /// <returns></returns>
+        /// <param name="obj">the version to check for.</param>
+        /// <returns>true if not equal.</returns>
         public override bool Equals(object obj)
         {
             if (!(obj is LatestVersion))

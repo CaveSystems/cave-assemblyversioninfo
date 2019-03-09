@@ -17,9 +17,9 @@ namespace Cave
         /// <summary>
         /// Checks two <see cref="AssemblyVersionInfo"/> for equality.
         /// </summary>
-        /// <param name="v1"></param>
-        /// <param name="v2"></param>
-        /// <returns></returns>
+        /// <param name="v1">first version info.</param>
+        /// <param name="v2">second version info.</param>
+        /// <returns>true if versions are equal.</returns>
         public static bool operator ==(AssemblyVersionInfo v1, AssemblyVersionInfo v2)
         {
             return v1.Equals(v2);
@@ -28,9 +28,9 @@ namespace Cave
         /// <summary>
         /// Checks two <see cref="AssemblyVersionInfo"/> for inequality.
         /// </summary>
-        /// <param name="v1"></param>
-        /// <param name="v2"></param>
-        /// <returns></returns>
+        /// <param name="v1">first version info.</param>
+        /// <param name="v2">second version info.</param>
+        /// <returns>true if versions are not equal.</returns>
         public static bool operator !=(AssemblyVersionInfo v1, AssemblyVersionInfo v2)
         {
             return !v1.Equals(v2);
@@ -62,8 +62,8 @@ namespace Cave
         /// <summary>
         /// Obtains the <see cref="AssemblyVersionInfo"/> for the specified FileName.
         /// </summary>
-        /// <param name="fileName"></param>
-        /// <returns></returns>
+        /// <param name="fileName">file name of the assembly.</param>
+        /// <returns>the assembly version info.</returns>
         public static AssemblyVersionInfo FromAssemblyFile(string fileName)
         {
             return FromAssembly(Assembly.LoadFile(fileName));
@@ -72,8 +72,8 @@ namespace Cave
         /// <summary>
         /// Obtains the <see cref="AssemblyVersionInfo"/> for the specified AssemblyName.
         /// </summary>
-        /// <param name="assemblyName"></param>
-        /// <returns></returns>
+        /// <param name="assemblyName">name of the assembly.</param>
+        /// <returns>the assembly version info.</returns>
         public static AssemblyVersionInfo FromAssemblyName(AssemblyName assemblyName)
         {
             return FromAssembly(Assembly.Load(assemblyName));
@@ -82,8 +82,8 @@ namespace Cave
         /// <summary>
         /// Obtains the <see cref="AssemblyVersionInfo"/> for the specified Assembly.
         /// </summary>
-        /// <param name="assembly"></param>
-        /// <returns></returns>
+        /// <param name="assembly">the assembly.</param>
+        /// <returns>the assembly version info.</returns>
         public static AssemblyVersionInfo FromAssembly(Assembly assembly)
         {
             if (assembly == null)
@@ -358,7 +358,7 @@ namespace Cave
         /// <summary>
         /// Obtains a latestversion instance for the current assembly (this populates only fields present at this instance).
         /// </summary>
-        /// <returns></returns>
+        /// <returns>the latest version.</returns>
         public LatestVersion ToLatestVersion()
         {
             return new LatestVersion()
@@ -377,7 +377,7 @@ namespace Cave
         /// <summary>
         /// Obtains the string describing this instance.
         /// </summary>
-        /// <returns></returns>
+        /// <returns>Product name and informal version.</returns>
         public override string ToString()
         {
             return Product + " " + InformalVersion;
@@ -409,7 +409,7 @@ namespace Cave
         /// <summary>
         /// Obtains a hashcode for this instance.
         /// </summary>
-        /// <returns></returns>
+        /// <returns>the hash code.</returns>
         public override int GetHashCode()
         {
             return Guid.GetHashCode();
@@ -418,8 +418,8 @@ namespace Cave
         /// <summary>
         /// Checks this instance for equality with another one.
         /// </summary>
-        /// <param name="obj"></param>
-        /// <returns></returns>
+        /// <param name="obj">object to check for.</param>
+        /// <returns>true if equal.</returns>
         public override bool Equals(object obj)
         {
             if (!(obj is AssemblyVersionInfo))
